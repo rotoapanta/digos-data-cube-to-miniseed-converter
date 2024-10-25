@@ -1,2 +1,13 @@
-# DiGOS_DataCube_to_MiniSEED_Converter
-This project focuses on converting data from DIGOS DATA-CUBE format to MiniSEED format using tools like cube2mseed. It includes utilities for processing and analyzing seismic and infrasound data. The project is designed to facilitate the conversion of field data into more accessible formats for scientific analysis.
+# DIGOS to MiniSEED Converter
+
+This project provides a bash script to convert DIGOS `.ADD` files into MiniSEED format using CubeTools.
+
+## Usage
+
+1. Place your `.ADD` files in the appropriate directories:
+   - `/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa`
+   - `/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa_2`
+
+2. Run the script:
+   ```bash
+   ./digos_to_miniseed_converter.sh
