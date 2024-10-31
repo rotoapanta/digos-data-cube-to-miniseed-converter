@@ -36,3 +36,17 @@ To successfully run this script, ensure the following requirements are met:
    ```bash
    git clone https://github.com/rotoapanta/digos-to-miniseed-converter.git
    cd digos-to-miniseed-converter
+
+2. **Ensure CubeTools is Installed**:
+Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`.
+
+3. **Update Script Permissions: Make the script executable if necessary**:
+   ```bash
+   chmod +x digos_to_miniseed_converter.sh
+
+## Usage
+
+1. Prepare `.ADD` Files: Place your `.ADD` files in the following directories (or create your own):
+/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa
+/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa_2
+Run the Conversion Script: Execute the script to convert the files:
