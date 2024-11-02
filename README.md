@@ -149,11 +149,11 @@ You should see output indicating the version of CubeTools installed.
 1. **Clone the Repository**:
 
 ```bash
-   git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
+   $ git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
 ```
 
 ```bash
-   cd digos-to-miniseed-converter
+   $ cd digos-to-miniseed-converter
 ```
 
 2. **Ensure CubeTools is Installed**:
@@ -163,7 +163,7 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 3. **Update Script Permissions: Make the script executable if necessary**:
 
 ```bash
-   chmod +x digos_to_miniseed_converter.sh
+   $ chmod +x digos_to_miniseed_converter.sh
 ```
 
 ## Usage
@@ -176,7 +176,7 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 Run the Conversion Script: Execute the script to convert the files:
 
 ```bash
-   ./digos_to_miniseed_converter.sh
+   $ ./digos_to_miniseed_converter.sh
 ```
 
 ## Example Output
