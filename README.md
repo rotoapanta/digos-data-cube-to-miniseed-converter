@@ -36,11 +36,11 @@ To successfully run this script, ensure the following requirements are met:
 
 1. **Download CubeTools**: Visit the official CubeTools website and download the latest version for your platform. Ensure compatibility with your operating system. Here is the link to download CubeTools:
    
-   [CubeTools Download Page](https://www.example.com/cubetools)
+   [CubeTools Download Page](https://digos.eu/seismology/)
 
 2. **Extract and Install**:
    - Extract the downloaded archive:
-   
+
      ```bash
      tar -xzf cubetools-2024.170.tar.gz
      ```
