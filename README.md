@@ -50,7 +50,7 @@ Install the OpenJDK 8 package with the following command:
    $ sudo apt install openjdk-8-jdk
 ```
 
-2. **Verify and select Java 1.8 for CubeTools**:
+3. **Verify and select Java 1.8 for CubeTools**:
 
 Set Java 1.8 as the default version by running:
 
@@ -59,7 +59,7 @@ Set Java 1.8 as the default version by running:
 ```
 Select Java 1.8 when prompted.
 
-3. **Configure CubeTools to use Java 1.8**:
+4. **Configure CubeTools to use Java 1.8**:
 
 Add the following environment variable to configure CubeTools to use Java 1.8:
 
