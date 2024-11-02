@@ -144,7 +144,7 @@ Once installed, verify by running the following command:
 
 You should see output indicating the version of CubeTools installed.
 
-### Step 2: Clone the Repository
+### Step 3: Clone the Repository
 
 1. **Clone the Repository**:
 
@@ -199,3 +199,28 @@ Here is an example of the output you can expect:
 ```
 - Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/c`
 
+## Feedback
+
+If you have any feedback, please reach out to us at robertocarlos.toapanta@gmail.com
+
+## Support
+
+For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
+
+## License
+
+[GPL v2](https://www.gnu.org/licenses/gpl-2.0)
+
+## Authors
+
+- [@rotoapanta](https://github.com/rotoapanta)
+
+## More Info
+
+* [Official documentation for py-zabbix](https://py-zabbix.readthedocs.io/en/latest/)
+* [Install py-zabbix 1.1.7](https://pypi.org/project/pyzabbix/)
+
+## Links
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/rotoapanta)
