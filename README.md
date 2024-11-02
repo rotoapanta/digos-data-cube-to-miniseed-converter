@@ -209,12 +209,7 @@ For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
 ## License
 
-[GPL v2](https://www.gnu.org/licenses/gpl-2.0)
-
-## License
-
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-
 
 ## Authors
 
