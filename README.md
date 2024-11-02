@@ -149,7 +149,7 @@ You should see output indicating the version of CubeTools installed.
 1. **Clone the Repository**:
 
 ```bash
-   git clone https://github.com/rotoapanta/digos-to-miniseed-converter.git
+   git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
 ```
 
 ```bash
