@@ -170,8 +170,8 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 1. Prepare `.ADD` Files: Place your `.ADD` files in the following directories (or create your own):
 
-- `/path/to/your/directory/DTA/data_format_add_1`
-- `/path/to/your/directory/DTA/data_format_add_2`
+- `/path/to/your/directory/DTA/raw_add_files_1`
+- `/path/to/your/directory/DTA/raw_add_files_2`
 
 Run the Conversion Script: Execute the script to convert the files:
 
@@ -184,9 +184,9 @@ Run the Conversion Script: Execute the script to convert the files:
 Here is an example of the output you can expect:
 
 ```bash
-   Processing files in /path/to/your/directory/DTA/data_format_add_1/240625
-   [25%] Converting /path/to/your/directory/DTA/data_format_add_1/240625/06251944.ADD to MiniSEED...
-   [50%] Converting /path/to/your/directory/DTA/data_format_add_1/240625/06251945.ADD to MiniSEED...
+   Processing files in /path/to/your/directory/DTA/raw_add_files_1/240625
+   [25%] Converting /path/to/your/directory/DTA/raw_add_files_1/240625/06251944.ADD to MiniSEED...
+   [50%] Converting /path/to/your/directory/DTA/raw_add_files_1/240625/06251945.ADD to MiniSEED...
    ...
 ```
 
