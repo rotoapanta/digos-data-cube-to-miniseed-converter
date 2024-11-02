@@ -131,7 +131,7 @@ Update the environment with:
 Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
 
 ```bash
-$ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
+   $ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
 ```
 
 9. **Verify Installation**:
