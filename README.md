@@ -211,14 +211,18 @@ For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
 [GPL v2](https://www.gnu.org/licenses/gpl-2.0)
 
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+
 ## Authors
 
 - [@rotoapanta](https://github.com/rotoapanta)
 
 ## More Info
 
-* [Official documentation for py-zabbix](https://py-zabbix.readthedocs.io/en/latest/)
-* [Install py-zabbix 1.1.7](https://pypi.org/project/pyzabbix/)
+* [Official documentation for DiGOS, Portafolio Seismic Measurement Equipment](https://digos.eu/seismology/)
 
 ## Links
 
