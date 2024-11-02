@@ -38,32 +38,52 @@ CubeTools requires Java 1.8. Follow these steps to install it:
 
 1. Open a terminal and run the following commands:
    
-   ```bash
+```bash
    sudo apt update
-   ```
-   ```bash
+```
+```bash
    sudo apt install openjdk-8-jdk
-   ```
+```
 
 2. Verify and select Java 1.8 for CubeTools:
 
 ```bash
 sudo update-alternatives --config java
 ```
+Select Java 1.8 when prompted.
 
-### Step 1: Installing CubeTools
+3. Configure CubeTools to use Java 1.8 by adding the following environment variable:
 
-1. **Download CubeTools**: Visit the official CubeTools website and download the latest version for your platform. Ensure compatibility with your operating system. Here is the link to download CubeTools:
+```bash
+   export GIPPTOOLS_JAVA=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+```
+### Step 2: Download and Install CubeTools
+
+1. **Download CubeTools**: 
+
+Visit the official CubeTools website and download the latest version for your platform. Ensure compatibility with your operating system. Here is the link to download CubeTools:
    
    [CubeTools Download Page](https://digos.eu/seismology/)
 
-2. **Extract and Install**:
-   - Extract the downloaded archive:
+2. **Verify the downloaded file**:
 
-   ```bash
-   tar -xzf cubetools-2024.170.tar.gz
-   ```
-   - Navigate to the extracted directory and follow any provided instructions to install CubeTools. Typically, you might need to copy the binaries to a directory in your `PATH`, such as `/usr/local/bin`.
+```bash
+   file cubetools-2024.170-unix.tar.gz
+```
+
+3. **Extract the file**:
+
+```bash
+gunzip cubetools-2024.170-unix.tar.gz
+```
+```bash
+tar -xvf cubetools-2024.170-unix.tar
+```
+4. **Move the extracted directory to a suitable location**:
+
+Move the binaries to a directory in your PATH, such as `/usr/local/bin`.
+
+5. Verify the installation:
 
 3. **Verify Installation**:
    - Once installed, verify by running the following command:
