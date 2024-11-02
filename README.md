@@ -168,8 +168,8 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 1. Prepare `.ADD` Files: Place your `.ADD` files in the following directories (or create your own):
 
-- `/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa`
-- `/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa_2`
+- `/path/to/your/directory/DTA/data_format_add_1`
+- `/path/to/your/directory/DTA/data_format_add_2`
 
 Run the Conversion Script: Execute the script to convert the files:
 
@@ -182,17 +182,18 @@ Run the Conversion Script: Execute the script to convert the files:
 Here is an example of the output you can expect:
 
 ```bash
-   Procesando archivos en /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625
-   [25%] Convirtiendo /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625/06251944.ADD a MiniSEED...
-   [50%] Convirtiendo /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625/06251945.ADD a MiniSEED...
+   Processing files in /path/to/your/directory/DTA/data_format_add_1/240625
+   [25%] Converting /path/to/your/directory/DTA/data_format_add_1/240625/06251944.ADD to MiniSEED...
+   [50%] Converting /path/to/your/directory/DTA/data_format_add_1/240625/06251945.ADD to MiniSEED...
    ...
 ```
 
 ## Troubleshooting
 
 - Permission Issues: Ensure the output directory is writable. You can adjust permissions with:
-   ```bash
-   chmod -R 755 /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/MiniSEED
-   ````
+
+```bash
+   chmod -R 755 /path/to/your/directory/DTA/MiniSEED
+```
 - Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/c`
 
