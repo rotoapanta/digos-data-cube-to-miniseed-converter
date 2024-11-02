@@ -135,21 +135,23 @@ You should see output indicating the version of CubeTools installed.
 ### Step 2: Clone the Repository
 
 1. **Clone the Repository**:
-   ```bash
+
+```bash
    git clone https://github.com/rotoapanta/digos-to-miniseed-converter.git
+```
+
+```bash
    cd digos-to-miniseed-converter
-   ```
-   ```bash
-   cd digos-to-miniseed-converter
-   ```
+```
 
 2. **Ensure CubeTools is Installed**:
 Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`.
 
 3. **Update Script Permissions: Make the script executable if necessary**:
-   ```bash
+
+```bash
    chmod +x digos_to_miniseed_converter.sh
-   ```
+```
 
 ## Usage
 
@@ -160,20 +162,20 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 Run the Conversion Script: Execute the script to convert the files:
 
-   ```bash
+```bash
    ./digos_to_miniseed_converter.sh
-   ```
+```
 
 ## Example Output
 
 Here is an example of the output you can expect:
 
-   ```bash
+```bash
    Procesando archivos en /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625
    [25%] Convirtiendo /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625/06251944.ADD a MiniSEED...
    [50%] Convirtiendo /home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/Datos_cedia_infra_nasa/240625/06251945.ADD a MiniSEED...
    ...
-   ```
+```
 
 ## Troubleshooting
 
