@@ -79,7 +79,7 @@ Visit the official CubeTools website and download the latest version for your pl
 2. **Verify the downloaded file**:
 
 ```bash
-   file cubetools-2024.170-unix.tar.gz
+   $ file cubetools-2024.170-unix.tar.gz
 ```
 
 3. **Decompress the file**:
@@ -139,7 +139,7 @@ $ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
 Once installed, verify by running the following command:
 
 ```bash
-   cube2mseed --version
+   $ cube2mseed --version
 ```
 
 You should see output indicating the version of CubeTools installed.
