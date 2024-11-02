@@ -36,23 +36,32 @@ To successfully run this script, ensure the following requirements are met:
 
 CubeTools requires Java 1.8. Follow these steps to install it:
 
-1. **Open a terminal and run the following commands**:
-   
+1. **Update the package list**:  
+   Open a terminal and run the following command to update the package list:
+
 ```bash
-   sudo apt update
+   $ sudo apt update
 ```
+
+2. **Install OpenJDK 8**:
+Install the OpenJDK 8 package with the following command:
+
 ```bash
-   sudo apt install openjdk-8-jdk
+   $ sudo apt install openjdk-8-jdk
 ```
 
 2. **Verify and select Java 1.8 for CubeTools**:
 
+Set Java 1.8 as the default version by running:
+
 ```bash
-   sudo update-alternatives --config java
+   $ sudo update-alternatives --config java
 ```
 Select Java 1.8 when prompted.
 
-3. Configure CubeTools to use Java 1.8 by adding the following environment variable:
+3. **Configure CubeTools to use Java 1.8**:
+
+Add the following environment variable to configure CubeTools to use Java 1.8:
 
 ```bash
    export GIPPTOOLS_JAVA=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
@@ -94,7 +103,7 @@ Move the CubeTools to `/opt` (which is a common place to install software not in
 6. **Update the PATH variable**:
 
 Add the path to the CubeTools executable to your system's PATH variable. This will allow you
-Next, update your PATH variable in the .bashrc file, pointing to the new location:
+to run CubeTools from anywhere.
 
 ```bash
    $ nano ~/.bashrc
@@ -108,6 +117,7 @@ Add this line at the end of the file (if you haven't done so already):
 Save and close the file (Ctrl + O to save and Ctrl + X to exit).
 
 7. **Update the environment**:
+
 Update the environment with:
 
 ```bash
@@ -145,6 +155,7 @@ You should see output indicating the version of CubeTools installed.
 ```
 
 2. **Ensure CubeTools is Installed**:
+
 Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`.
 
 3. **Update Script Permissions: Make the script executable if necessary**:
