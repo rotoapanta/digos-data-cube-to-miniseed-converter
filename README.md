@@ -71,26 +71,66 @@ Visit the official CubeTools website and download the latest version for your pl
    file cubetools-2024.170-unix.tar.gz
 ```
 
-3. **Extract the file**:
+3. **Decompress the file**:
+
+Decompress using gunzip:
+This will remove the .gz part, leaving you with the file cubetools-2024.170-unix.tar.
 
 ```bash
-gunzip cubetools-2024.170-unix.tar.gz
+   $ gunzip cubetools-2024.170-unix.tar.gz
 ```
+
+4. **Extract the .tar file**:
+
+Extract the contents of the tar file using tar:
+
 ```bash
-tar -xvf cubetools-2024.170-unix.tar
+   $ tar -xvf cubetools-2024.170-unix.tar
 ```
-4. **Move the extracted directory to a suitable location**:
+5. **Move the extracted directory to a suitable location**:
 
-Move the binaries to a directory in your PATH, such as `/usr/local/bin`.
+Move the CubeTools to `/opt` (which is a common place to install software not in your system's repositories).
 
-5. Verify the installation:
+6. **Update the PATH variable**:
 
-3. **Verify Installation**:
-   - Once installed, verify by running the following command:
-     ```bash
-     cube2mseed --version
-     ```
-   - You should see output indicating the version of CubeTools installed.
+Add the path to the CubeTools executable to your system's PATH variable. This will allow you
+Next, update your PATH variable in the .bashrc file, pointing to the new location:
+
+```bash
+   $ nano ~/.bashrc
+```
+
+Add this line at the end of the file (if you haven't done so already):
+
+```bash
+   export PATH=$PATH:/opt/cubetools-2024.170/bin
+```
+Save and close the file (Ctrl + O to save and Ctrl + X to exit).
+
+7. **Update the environment**:
+Update the environment with:
+
+```bash
+   $ source ~/.bashrc
+```
+
+8. **Set execution permissions for cube2mseed**:
+
+Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
+
+```bash
+$ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
+```
+
+9. **Verify Installation**:
+
+Once installed, verify by running the following command:
+
+```bash
+   cube2mseed --version
+```
+
+You should see output indicating the version of CubeTools installed.
 
 ### Step 2: Clone the Repository
 
