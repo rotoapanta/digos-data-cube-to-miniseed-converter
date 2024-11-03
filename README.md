@@ -144,6 +144,9 @@ Once installed, verify by running the following command:
 
 You should see output indicating the version of CubeTools installed.
 
+![Logo del proyecto](images/image_1.png)
+
+
 ### Step 3: Clone the Repository
 
 1. **Clone the Repository**:
