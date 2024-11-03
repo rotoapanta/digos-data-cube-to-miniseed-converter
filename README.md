@@ -211,6 +211,37 @@ If you have any feedback, please reach out to us at robertocarlos.toapanta@gmail
 
 For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
+## Contributing
+
+We welcome contributions to improve this script. Please follow these steps:
+
+1. **Fork the repository**:
+
+- Go to the repository on GitHub.
+- Click the "Fork" button in the top right corner.
+
+2. **Create a new branch**:
+
+```bash
+   git checkout -b feature/your-feature-name
+```
+
+3. **Make your changes and commit**:
+
+```bash
+   git commit -m "Add your detailed description here"
+```
+
+4. **Push to your branch**:
+
+```bash
+   $ git push origin feature/your-feature-name
+```
+
+5. **Open a Pull Request**:
+
+Go to your repository on GitHub.
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
