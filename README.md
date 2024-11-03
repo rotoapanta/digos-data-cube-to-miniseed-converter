@@ -215,21 +215,28 @@ For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
 We welcome contributions to improve this script. Please follow these steps:
 
-1. **Fork the repository**:
+1. **Fork the Repository**: 
 
-- Go to the repository on GitHub.
-- Click the "Fork" button in the top right corner.
+Click on the "Fork" button at the top right of this page to create a copy of this repository on your GitHub account.
+
+2. **Clone the Repository**: 
+
+Clone your forked repository to your local machine.
+
+```bash
+   $ git clone https://github.com/your-username/digos-to-miniseed-converter.git
+```
 
 2. **Create a new branch**:
 
 ```bash
-   git checkout -b feature/your-feature-name
+   $ git checkout -b feature/your-feature-name
 ```
 
 3. **Make your changes and commit**:
 
 ```bash
-   git commit -m "Add your detailed description here"
+   $ git commit -m "Add your detailed description here"
 ```
 
 4. **Push to your branch**:
