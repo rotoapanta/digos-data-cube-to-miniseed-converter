@@ -146,7 +146,10 @@ You should see output indicating the version of CubeTools installed.
 
 ![CubeTools version](images/image_1.png)
 
-<p align="center"><em>Figure 1: CubeTools version verification output</em></p>
+<p align="center">
+  <img src="images/image_1.png" width="300" />
+  <em>Figure 1: CubeTools version verification output</em>
+</p>
 
 ### Step 3: Clone the Repository
 
