@@ -147,7 +147,7 @@ You should see output indicating the version of CubeTools installed.
 ![CubeTools version](images/image_1.png)
 
 <p align="center">
-  <img src="images/image_1.png" width="300" />
+  <img src="images/image_1.png" width="500" />
   <em>Figure 1: CubeTools version verification output</em>
 </p>
 
