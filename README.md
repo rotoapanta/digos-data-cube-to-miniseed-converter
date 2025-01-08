@@ -4,7 +4,7 @@
 ![CubeTools](https://img.shields.io/badge/CubeTools-2024.170-brightgreen.svg)
 ![GitHub issues](https://img.shields.io/github/issues/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![Last Commit](https://img.shields.io/github/last-commit/rotoapanta/digos-to-miniseed-converter)
-![License](https://img.shields.io/github/license/rotoapanta/digos-to-miniseed-converter)
+![License](https://img.shields.io/github/license/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![Supported Platforms](https://img.shields.io/badge/platform-Linux%20|%20macOS-green)
 
