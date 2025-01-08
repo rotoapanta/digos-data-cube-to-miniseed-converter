@@ -36,7 +36,7 @@ To successfully run this script, ensure the following requirements are met:
 
 CubeTools requires Java 1.8. Follow these steps to install it:
 
-1. **Update the package list**:
+**1. Update the package list**:
 
 Open a terminal and run the following command to update the package list:
 
@@ -44,7 +44,7 @@ Open a terminal and run the following command to update the package list:
    $ sudo apt update
 ```
 
-2. **Install OpenJDK 8**:
+**2. Install OpenJDK 8**:
 
 Install the OpenJDK 8 package with the following command:
 
@@ -52,7 +52,7 @@ Install the OpenJDK 8 package with the following command:
    $ sudo apt install openjdk-8-jdk
 ```
 
-3. **Verify and select Java 1.8 for CubeTools**:
+**3. Verify and select Java 1.8 for CubeTools**:
 
 Set Java 1.8 as the default version by running:
 
@@ -61,7 +61,7 @@ Set Java 1.8 as the default version by running:
 ```
 Select Java 1.8 when prompted.
 
-4. **Configure CubeTools to use Java 1.8**:
+**4. Configure CubeTools to use Java 1.8**:
 
 Add the following environment variable to configure CubeTools to use Java 1.8:
 
@@ -70,19 +70,19 @@ Add the following environment variable to configure CubeTools to use Java 1.8:
 ```
 ### Step 2: Download and Install CubeTools
 
-1. **Download CubeTools**: 
+**1. Download CubeTools**: 
 
 Visit the official CubeTools website and download the latest version for your platform. Ensure compatibility with your operating system. Here is the link to download CubeTools:
    
    [CubeTools Download Page](https://digos.eu/seismology/)
 
-2. **Verify the downloaded file**:
+**2. Verify the downloaded file**:
 
 ```bash
    $ file cubetools-2024.170-unix.tar.gz
 ```
 
-3. **Decompress the file**:
+**3. Decompress the file**:
 
 Decompress using gunzip:
 This will remove the .gz part, leaving you with the file cubetools-2024.170-unix.tar.
@@ -91,18 +91,18 @@ This will remove the .gz part, leaving you with the file cubetools-2024.170-unix
    $ gunzip cubetools-2024.170-unix.tar.gz
 ```
 
-4. **Extract the .tar file**:
+**4. Extract the .tar file**:
 
 Extract the contents of the tar file using tar:
 
 ```bash
    $ tar -xvf cubetools-2024.170-unix.tar
 ```
-5. **Move the extracted directory to a suitable location**:
+**5. Move the extracted directory to a suitable location**:
 
 Move the CubeTools to `/opt` (which is a common place to install software not in your system's repositories).
 
-6. **Update the PATH variable**:
+**6. Update the PATH variable**:
 
 Add the path to the CubeTools executable to your system's PATH variable. This will allow you
 to run CubeTools from anywhere.
@@ -118,7 +118,7 @@ Add this line at the end of the file (if you haven't done so already):
 ```
 Save and close the file (Ctrl + O to save and Ctrl + X to exit).
 
-7. **Update the environment**:
+**7. Update the environment**:
 
 Update the environment with:
 
@@ -126,7 +126,7 @@ Update the environment with:
    $ source ~/.bashrc
 ```
 
-8. **Set execution permissions for cube2mseed**:
+**8. Set execution permissions for cube2mseed**:
 
 Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
 
@@ -134,7 +134,7 @@ Ensure that cube2mseed has execution permissions. If it is not executable, grant
    $ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
 ```
 
-9. **Verify Installation**:
+**9. Verify Installation**:
 
 Once installed, verify by running the following command:
 
@@ -150,7 +150,7 @@ You should see output indicating the version of CubeTools installed.
 
 ### Step 3: Clone the Repository
 
-1. **Clone the Repository**:
+**1. Clone the Repository**:
 
 ```bash
    $ git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
@@ -160,11 +160,11 @@ You should see output indicating the version of CubeTools installed.
    $ cd DiGOS_DataCube_to_MiniSEED_Converter
 ```
 
-2. **Ensure CubeTools is Installed**:
+**2. Ensure CubeTools is Installed**:
 
 Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`.
 
-3. **Update Script Permissions: Make the script executable if necessary**:
+**3. Update Script Permissions: Make the script executable if necessary**:
 
 ```bash
    $ chmod +x digos_to_miniseed_converter.sh
@@ -172,7 +172,7 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 ## Usage
 
-1. **Prepare `.ADD` Files**:
+**1. Prepare `.ADD` Files**:
 
 Place your `.ADD` files in the following directory (or create your own):
 
@@ -195,11 +195,9 @@ You will be prompted with a list of directories to choose from. For example:
 
 Select the directory by typing the corresponding number.
 
-2. **Script Execution**: 
+**2. Script Execution**: 
 
 Once a directory is selected, the script will begin processing the `.ADD` files and convert them to MiniSEED files. The output will be saved in a subdirectory created in the same directory as the `.ADD` files, with a name like `MiniSEED_YYYY-MM-DD_HH-MM-SS`.
-
-    Example of output in the terminal:
 
 ```bash
    Starting file processing...
@@ -216,7 +214,7 @@ Once a directory is selected, the script will begin processing the `.ADD` files 
    Processing completed.
 ```
 
-3. **Output Files**: 
+**3. Output Files**: 
 
 The MiniSEED files will be located in the newly created directory within the selected directory, named like `MiniSEED_Y-m-d_H-M-S`.
 
@@ -226,7 +224,7 @@ The MiniSEED files will be located in the newly created directory within the sel
    /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/c0add240625194443.pri2
 ```
 
-4. **Log Files**: 
+**4. Log Files**: 
 
 A log file will be created in the same directory as the output files, detailing the processing steps, conversion status, and any errors.
    
@@ -269,11 +267,11 @@ For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
 We welcome contributions to improve this script. Please follow these steps:
 
-1. **Fork the Repository**: 
+**1. Fork the Repository**: 
 
 Click on the "Fork" button at the top right of this page to create a copy of this repository on your GitHub account.
 
-2. **Clone the Repository**: 
+**2. Clone the Repository**: 
 
 Clone your forked repository to your local machine.
 
