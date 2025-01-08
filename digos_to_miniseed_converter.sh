@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# ================================================================
+# Script for Converting .ADD Files to MiniSEED Format
+# Version: 1.0.7
+# Author: Roberto Toapanta
+# Date: 2024-09-18
+# Description: This script processes .ADD files located in a
+#              specified directory and converts them to MiniSEED
+#              format using the CubeTools.
+# ================================================================
+
 # Script version
 script_version="1.0.7"
 echo "Script version: $script_version"
