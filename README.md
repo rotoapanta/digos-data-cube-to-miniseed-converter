@@ -36,7 +36,7 @@ To successfully run this script, ensure the following requirements are met:
 
 CubeTools requires Java 1.8. Follow these steps to install it:
 
-  **1. Update the package list**:
+1. **Update the package list**:
 
 Open a terminal and run the following command to update the package list:
 
@@ -44,7 +44,7 @@ Open a terminal and run the following command to update the package list:
    $ sudo apt update
 ```
 
-**2. Install OpenJDK 8**:
+2. **Install OpenJDK 8**:
 
 Install the OpenJDK 8 package with the following command:
 
@@ -52,7 +52,7 @@ Install the OpenJDK 8 package with the following command:
    $ sudo apt install openjdk-8-jdk
 ```
 
-**3. Verify and select Java 1.8 for CubeTools**:
+3. **Verify and select Java 1.8 for CubeTools**:
 
 Set Java 1.8 as the default version by running:
 
@@ -61,7 +61,7 @@ Set Java 1.8 as the default version by running:
 ```
 Select Java 1.8 when prompted.
 
-**4. Configure CubeTools to use Java 1.8**:
+4. **Configure CubeTools to use Java 1.8**:
 
 Add the following environment variable to configure CubeTools to use Java 1.8:
 
