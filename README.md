@@ -187,7 +187,7 @@ Run the Conversion Script: Execute the script to convert the files:
 You will be prompted with a list of directories to choose from. For example:
 
 ```bash
-    Selecciona un directorio con archivos .ADD para procesar:
+    Select a directory with .ADD files to process:
     1) /path/to/your/directory/DTA/raw_add_files_1
     2) /path/to/your/directory/DTA/raw_add_files_2
     3) /path/to/your/directory/DTA/raw_add_files_3
@@ -202,12 +202,18 @@ Once a directory is selected, the script will begin processing the `.ADD` files 
     Example of output in the terminal:
 
 ```bash
-   Procesando archivos de /home/user/DiGOS/DTA_CEDIA/24
-   Se encontraron 2 archivos .ADD en /home/user/DiGOS/DTA_CEDIA/24.
+   Starting file processing...
+   Processing files from /path/to/your/directory/DTA/raw_add_files_1
+   Found 2 .ADD files in /path/to/your/directory/DTA/raw_add_files_1.
    ...
    ...
    ...
-   Archivo /home/user/DiGOS/DTA_CEDIA/24/06251944.ADD convertido con éxito.
+   File /path/to/your/directory/DTA/raw_add_files1/file1.ADD converted successfully.
+   ...
+   File /path/to/your/directory/DTA/raw_add_files1/file2.ADD converted successfully.  
+   ...
+   Total files processed: 2.
+   Processing completed.
 ```
 
 3. **Output Files**: 
