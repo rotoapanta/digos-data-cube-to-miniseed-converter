@@ -218,7 +218,7 @@ Once a directory is selected, the script will begin processing the `.ADD` files 
 
 3. **Output Files**: 
 
-The MiniSEED files will be located in the newly created directory within the selected directory, named like `MiniSEED_2025-01-08_10-07-22`.
+The MiniSEED files will be located in the newly created directory within the selected directory, named like `MiniSEED_Y-m-d_H-M-S`.
 
 ```bash
    /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/c0add240625194443.pri0
