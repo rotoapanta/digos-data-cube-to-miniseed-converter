@@ -172,10 +172,9 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 ## Usage
 
-1. Prepare `.ADD` Files: Place your `.ADD` files in the following directories (or create your own):
+1. Prepare `.ADD` Files: Place your `.ADD` files in the following directory (or create your own):
 
 - `/path/to/your/directory/DTA/raw_add_files_1`
-- `/path/to/your/directory/DTA/raw_add_files_2`
 
 Run the Conversion Script: Execute the script to convert the files:
 
@@ -201,7 +200,7 @@ Here is an example of the output you can expect:
 ```bash
    chmod -R 755 /path/to/your/directory/DTA/MiniSEED
 ```
-- Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/c`
+- Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`
 
 ## Feedback
 
