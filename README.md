@@ -157,7 +157,7 @@ You should see output indicating the version of CubeTools installed.
 ```
 
 ```bash
-   $ cd digos-to-miniseed-converter
+   $ cd DiGOS_DataCube_to_MiniSEED_Converter
 ```
 
 2. **Ensure CubeTools is Installed**:
