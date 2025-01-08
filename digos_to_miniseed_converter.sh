@@ -1,98 +1,98 @@
 #!/bin/bash
 
-# Versión del script
+# Script version
 script_version="1.0.7"
-echo "Versión del script: $script_version"
+echo "Script version: $script_version"
 
-# Directorio base donde se buscarán las carpetas con archivos .ADD
+# Base directory where directories with .ADD files will be searched
 base_dir="/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA"
 
-# Obtener la lista de subdirectorios (carpetas) en base_dir
-echo "Selecciona un directorio con archivos .ADD para procesar:"
+# Get the list of subdirectories in base_dir
+echo "Select a directory with .ADD files to process:"
 select dir in $(find "$base_dir" -type d); do
     if [ -n "$dir" ]; then
-        echo "Seleccionaste el directorio: $dir"
+        echo "You selected the directory: $dir"
         break
     else
-        echo "Selección no válida, por favor intenta de nuevo."
+        echo "Invalid selection, please try again."
     fi
 done
 
-# Obtener la fecha actual para el nombre del directorio de salida
+# Get the current date for the output directory name
 current_date=$(date +%Y-%m-%d_%H-%M-%S)
 
-# Contar cuántos archivos .ADD (raw data) hay en total
+# Count how many .ADD (raw data) files there are in total
 raw_data_files=$(find "$dir" -type f -name "*.ADD" | wc -l)
 
-# Directorio de salida para los archivos MiniSEED, ubicado dentro de base_dir y con el sufijo MiniSEED_$current_date
+# Output directory for the MiniSEED files, located inside base_dir with the suffix MiniSEED_$current_date
 output_dir="$base_dir/MiniSEED_$current_date"
 
-# Crear el directorio de salida si no existe
+# Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
-echo "Directorio de salida creado: $output_dir"
+echo "Output directory created: $output_dir"
 
-# Crear archivo de log dentro del directorio de salida
-log_file="$output_dir/log_digos_to_miniseed_$(date +%Y-%m-%d_%H-%M-%S).log"
+# Create a log file inside the output directory
+log_file="$output_dir/log__$(date +%Y-%m-%d).log"
 
-# Redirigir la salida estándar y la salida de error al archivo de log
+# Redirect stdout and stderr to the log file
 exec > >(tee -a "$log_file") 2>&1
 
-# Contador global para llevar los archivos procesados
+# Global counter to track processed files
 total_processed_files=0
 
-# Función para procesar un directorio con porcentaje de progreso
+# Function to process a directory with progress percentage
 procesar_directorio () {
     local dir=$1
-    echo "Procesando archivos de $dir"
+    echo "Processing files from $dir"
     
-    # Contar cuántos archivos .ADD hay en total antes de procesarlos
+    # Count how many .ADD files there are in total before processing
     total_files=$(find "$dir" -type f -name "*.ADD" | wc -l)
     
-    # Si no hay archivos .ADD, salimos
+    # If no .ADD files are found, exit
     if [ "$total_files" -eq 0 ]; then
-        echo "No se encontraron archivos .ADD en $dir"
+        echo "No .ADD files found in $dir"
         return
     fi
     
-    echo "Se encontraron $total_files archivos .ADD en $dir."
+    echo "Found $total_files .ADD files in $dir."
 
-    # Contador para llevar el progreso
+    # Progress counter
     processed=0
 
-    # Contabilizamos los archivos procesados
+     # Process the files
     find "$dir" -type f -name "*.ADD" | while read file
     do
-        if [ -f "$file" ]; then  # Verificación para asegurarnos que es un archivo
+        if [ -f "$file" ]; then  # Check to ensure it's a file
             processed=$((processed + 1))
             percentage=$((processed * 100 / total_files))
-            echo "[$percentage%] Convirtiendo $file a MiniSEED..."
+            echo "[$percentage%] Converting $file to MiniSEED..."
 
-            # Ejecutar el comando cube2mseed
+            # Run the cube2mseed command
             /opt/cubetools-2024.170/bin/cube2mseed --verbose --output-dir="$output_dir" "$file"
             
-            # Verificar si la conversión fue exitosa
+            # Check if the conversion was successful
             if [ $? -eq 0 ]; then
-                echo "Archivo $file convertido con éxito."
+                echo "File $file converted successfully."
             else
-                echo "Error al convertir $file."
+                echo "Error converting $file."
             fi
         fi
     done
 
-    # Aumentamos el contador global de archivos procesados
+    # Increase the global processed files counter
     total_processed_files=$((total_processed_files + processed))
-    echo "Finalizó la conversión de archivos de $dir."
+    echo "Finished converting files in $dir."
 }
 
-# Procesar el directorio base
-echo "Iniciando el procesamiento de archivos..."
+# Process the selected directory
+echo "Starting file processing..."
 if [ -d "$dir" ]; then
     procesar_directorio "$dir"
 else
-    echo "$dir no es un directorio válido."
+    echo "$dir is not a valid directory."
 fi
 
-# Mostrar el total de archivos procesados
-echo "Directorio de salida final: $output_dir"
-echo "Total de archivos procesados: $total_files."
-echo "Procesamiento completado."
+# Display total processed files
+echo "Output directory: $output_dir"
+echo "Total files processed: $total_files."
+echo "Processing completed."
