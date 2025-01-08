@@ -15,7 +15,7 @@ script_version="1.0.7"
 echo "Script version: $script_version"
 
 # Base directory where directories with .ADD files will be searched
-base_dir="/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA"
+base_dir="/path/to/your/directory/DTA"
 
 # Get the list of subdirectories in base_dir
 echo "Select a directory with .ADD files to process:"
