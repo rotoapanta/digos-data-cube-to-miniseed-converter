@@ -176,11 +176,58 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 - `/path/to/your/directory/DTA/raw_add_files_1`
 
-Run the Conversion Script: Execute the script to convert the files:
+   Run the Conversion Script: Execute the script to convert the files:
 
 ```bash
    $ ./digos_to_miniseed_converter.sh
 ```
+
+   You will be prompted with a list of directories to choose from. For example:
+
+```bash
+    Selecciona un directorio con archivos .ADD para procesar:
+    1) /path/to/your/directory/DTA/raw_add_files_1
+    2) /path/to/your/directory/DTA/raw_add_files_2
+    3) /path/to/your/directory/DTA/raw_add_files_3
+```
+
+   Select the directory by typing the corresponding number.
+
+2. **Script Execution**: Once a directory is selected, the script will begin processing the `.ADD` files and convert them to MiniSEED files. The output will be saved in a subdirectory created in the same directory as the `.ADD` files, with a name like `MiniSEED_YYYY-MM-DD_HH-MM-SS`.
+
+    Example of output in the terminal:
+
+    ```text
+    Procesando archivos de /home/user/DiGOS/DTA_CEDIA/24
+    Se encontraron 2 archivos .ADD en /home/user/DiGOS/DTA_CEDIA/24.
+    [50%] Convirtiendo /home/user/DiGOS/DTA_CEDIA/24/06251944.ADD a MiniSEED...
+    INFO: All output files will be written to the "/home/user/DiGOS/DTA_CEDIA/MiniSEED_2025-01-08_10-07-22" directory.
+    INFO: Searching for Cube input files. This may take a while...
+    INFO: Converted 9.7 MiB in 2.136 s
+    Archivo /home/user/DiGOS/DTA_CEDIA/24/06251944.ADD convertido con éxito.
+    ```
+
+3. **Output Files**: The MiniSEED files will be located in the newly created directory within the selected directory, named like `MiniSEED_2025-01-08_10-07-22`.
+
+    ```text
+    /home/user/DiGOS/DTA_CEDIA/MiniSEED_2025-01-08_10-07-22/c0add240625194443.pri0
+    /home/user/DiGOS/DTA_CEDIA/MiniSEED_2025-01-08_10-07-22/c0add240625194443.pri1
+    /home/user/DiGOS/DTA_CEDIA/MiniSEED_2025-01-08_10-07-22/c0add240625194443.pri2
+    ```
+
+4. **Log Files**: A log file will be created in the same directory as the output files, detailing the processing steps, conversion status, and any errors.
+   
+    Example of log output:
+
+    ```text
+    Directorio de salida creado: /home/user/DiGOS/DTA_CEDIA/MiniSEED_2025-01-08_10-07-22
+    Procesando archivos de /home/user/DiGOS/DTA_CEDIA/24
+    Se encontraron 2 archivos .ADD en /home/user/DiGOS/DTA_CEDIA/24.
+    ...
+    ```
+
+This approach ensures the user knows how to select a directory and what to expect from the script.
+
 
 ## Example Output
 
