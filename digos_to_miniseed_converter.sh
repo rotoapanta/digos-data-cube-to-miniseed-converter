@@ -12,7 +12,7 @@ script_version="1.4.0"
 echo "Script version: $script_version"
 
 # Base directory where directories with .ADD files are located.
-base_dir="/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/"
+base_dir="/path/to/your/directory/DTA"
 
 # Global variable to track the total number of processed files.
 total_files_processed=0
