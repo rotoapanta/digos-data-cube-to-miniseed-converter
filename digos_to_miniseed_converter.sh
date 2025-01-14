@@ -1,23 +1,23 @@
 #!/bin/bash
 
-# ================================================================
-# Script for Converting .ADD Files to MiniSEED Format
-# Version: 1.0.7
+# Script Name: digos_to_miniseed_converter.sh
+# Description: Converts ADD (raw data) files to MiniSEED format.
+# Version: 1.4.0
 # Author: Roberto Toapanta
 # Date: 2024-09-18
-# Description: This script processes .ADD files located in a
-#              specified directory and converts them to MiniSEED
-#              format using the CubeTools.
-# ================================================================
+# License: GNU General Public License v3.0
 
 # Script version
-script_version="1.0.7"
+script_version="1.4.0"
 echo "Script version: $script_version"
 
-# Base directory where directories with .ADD files will be searched
-base_dir="/path/to/your/directory/DTA"
+# Base directory where directories with .ADD files are located.
+base_dir="/home/rotoapanta/Documentos/DiGOS/DTA_CEDIA/"
 
-# Get the list of subdirectories in base_dir
+# Global variable to track the total number of processed files.
+total_files_processed=0
+
+# Prompt the user to select a directory.
 echo "Select a directory with .ADD files to process:"
 select dir in $(find "$base_dir" -type d); do
     if [ -n "$dir" ]; then
@@ -28,59 +28,56 @@ select dir in $(find "$base_dir" -type d); do
     fi
 done
 
-# Get the current date for the output directory name
-current_date=$(date +%Y-%m-%d_%H-%M-%S)
+# Extract the selected directory's name.
+output_dirname=$(basename "$dir")
 
-# Count how many .ADD (raw data) files there are in total
-raw_data_files=$(find "$dir" -type f -name "*.ADD" | wc -l)
+# Get the parent directory of the selected directory.
+parent_dir=$(dirname "$dir")
 
-# Output directory for the MiniSEED files, located inside base_dir with the suffix MiniSEED_$current_date
-output_dir="$base_dir/MiniSEED_$current_date"
+# Function to process a directory and convert .ADD files to MiniSEED.
+#
+# Arguments:
+#   $1: The directory containing the .ADD files.
+#   $2: The parent directory.
+#   $3: The name of the original directory.
+procesar_directorio() {
+    local dir="$1"
+    local parent_dir="$2"
+    local output_dirname="$3"
 
-# Create the output directory if it doesn't exist
-mkdir -p "$output_dir"
-echo "Output directory created: $output_dir"
-
-# Create a log file inside the output directory
-log_file="$output_dir/log__$(date +%Y-%m-%d).log"
-
-# Redirect stdout and stderr to the log file
-exec > >(tee -a "$log_file") 2>&1
-
-# Global counter to track processed files
-total_processed_files=0
-
-# Function to process a directory with progress percentage
-procesar_directorio () {
-    local dir=$1
     echo "Processing files from $dir"
-    
-    # Count how many .ADD files there are in total before processing
-    total_files=$(find "$dir" -type f -name "*.ADD" | wc -l)
-    
-    # If no .ADD files are found, exit
-    if [ "$total_files" -eq 0 ]; then
+
+    # Count .ADD files in the current directory.
+    local files_in_this_dir=$(find "$dir" -type f -name "*.ADD" | wc -l)
+
+    if [ "$files_in_this_dir" -eq 0 ]; then
         echo "No .ADD files found in $dir"
         return
     fi
-    
-    echo "Found $total_files .ADD files in $dir."
 
-    # Progress counter
+    echo "Found $files_in_this_dir .ADD files in $dir."
+
+    # Create the output directory in the parent directory.
+    output_dir="$parent_dir/MiniSEED_${output_dirname}"
+    mkdir -p "$output_dir"
+    echo "Output directory created: $output_dir"
+
+    # Create a log file inside the output directory.
+    log_file="$output_dir/log__$(date +%Y-%m-%d).log"
+
+    # Redirect stdout and stderr to the log file.
+    exec > >(tee -a "$log_file") 2>&1
+
     processed=0
-
-     # Process the files
-    find "$dir" -type f -name "*.ADD" | while read file
-    do
-        if [ -f "$file" ]; then  # Check to ensure it's a file
+    find "$dir" -type f -name "*.ADD" | while read file; do
+        if [ -f "$file" ]; then
             processed=$((processed + 1))
-            percentage=$((processed * 100 / total_files))
+            percentage=$((processed * 100 / files_in_this_dir))
             echo "[$percentage%] Converting $file to MiniSEED..."
 
-            # Run the cube2mseed command
+            # Run the cube2mseed command.
             /opt/cubetools-2024.170/bin/cube2mseed --verbose --output-dir="$output_dir" "$file"
-            
-            # Check if the conversion was successful
+
             if [ $? -eq 0 ]; then
                 echo "File $file converted successfully."
             else
@@ -88,21 +85,21 @@ procesar_directorio () {
             fi
         fi
     done
-
-    # Increase the global processed files counter
-    total_processed_files=$((total_processed_files + processed))
     echo "Finished converting files in $dir."
+
+    # Update the global count of processed files.
+    total_files_processed=$((total_files_processed + files_in_this_dir))
 }
 
-# Process the selected directory
+# Start processing.
 echo "Starting file processing..."
 if [ -d "$dir" ]; then
-    procesar_directorio "$dir"
+    procesar_directorio "$dir" "$parent_dir" "$output_dirname"
 else
     echo "$dir is not a valid directory."
 fi
 
-# Display total processed files
-echo "Output directory: $output_dir"
-echo "Total files processed: $total_files."
+# Display the total number of processed files.
+echo "Output directory: $parent_dir/MiniSEED_${output_dirname}"
+echo "Total files processed: $total_files_processed"
 echo "Processing completed."
