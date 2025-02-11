@@ -1,24 +1,31 @@
 #!/bin/bash
 
 # Script Name: digos_to_miniseed_converter.sh
-# Description: Converts ADD (raw data) files to MiniSEED format.
-# Version: 1.4.0
+# Description: Converts raw data files (.ADD, .CF0, .CF1, etc.) to MiniSEED format.
+# Version: 1.7.2
 # Author: Roberto Toapanta
 # Date: 2024-09-18
 # License: GNU General Public License v3.0
 
 # Script version
-script_version="1.4.0"
+script_version="1.7.2"
 echo "Script version: $script_version"
 
-# Base directory where directories with .ADD files are located.
-base_dir="/path/to/your/directory/DTA"
+# Prompt user to enter the base directory with autocompletion
+echo "Enter the base directory (use TAB for autocompletion):"
+read -e -p "Base directory: " base_dir
+
+# Validate if the directory exists
+if [ ! -d "$base_dir" ]; then
+    echo "Error: Directory does not exist. Exiting."
+    exit 1
+fi
 
 # Global variable to track the total number of processed files.
 total_files_processed=0
 
 # Prompt the user to select a directory.
-echo "Select a directory with .ADD files to process:"
+echo "Select a directory with raw data files to process:"
 select dir in $(find "$base_dir" -type d); do
     if [ -n "$dir" ]; then
         echo "You selected the directory: $dir"
@@ -34,28 +41,49 @@ output_dirname=$(basename "$dir")
 # Get the parent directory of the selected directory.
 parent_dir=$(dirname "$dir")
 
-# Function to process a directory and convert .ADD files to MiniSEED.
-#
-# Arguments:
-#   $1: The directory containing the .ADD files.
-#   $2: The parent directory.
-#   $3: The name of the original directory.
+# Detect available file extensions in the selected directory.
+extensions=$(find "$dir" -type f -name "*.*" | sed -n 's/.*\.\([A-Za-z0-9]*\)$/\1/p' | sort -u)
+
+# Check if any extensions were found.
+if [ -z "$extensions" ]; then
+    echo "No valid files with extensions found in $dir. Exiting."
+    exit 1
+fi
+
+# Display the detected extensions for selection.
+echo "Detected file extensions:"
+select file_extension in $extensions; do
+    if [ -n "$file_extension" ]; then
+        echo "You selected the extension: .$file_extension"
+        break
+    else
+        echo "Invalid selection, please try again."
+    fi
+done
+
+# Verify if the directory still exists after selection
+if [ ! -d "$dir" ]; then
+    echo "Error: The selected directory ($dir) no longer exists. Exiting."
+    exit 1
+fi
+
+# Function to process a directory and convert files with the selected extension to MiniSEED.
 procesar_directorio() {
     local dir="$1"
     local parent_dir="$2"
     local output_dirname="$3"
 
-    echo "Processing files from $dir"
+    echo "Processing .$file_extension files from $dir"
 
-    # Count .ADD files in the current directory.
-    local files_in_this_dir=$(find "$dir" -type f -name "*.ADD" | wc -l)
+    # Count files with the selected extension before starting
+    local files_in_this_dir=$(find "$dir" -type f -name "*.${file_extension}" | wc -l)
 
     if [ "$files_in_this_dir" -eq 0 ]; then
-        echo "No .ADD files found in $dir"
+        echo "No .$file_extension files found in $dir. Exiting."
         return
     fi
 
-    echo "Found $files_in_this_dir .ADD files in $dir."
+    echo "Found $files_in_this_dir .$file_extension files in $dir."
 
     # Create the output directory in the parent directory.
     output_dir="$parent_dir/MiniSEED_${output_dirname}"
@@ -69,23 +97,28 @@ procesar_directorio() {
     exec > >(tee -a "$log_file") 2>&1
 
     processed=0
-    find "$dir" -type f -name "*.ADD" | while read file; do
-        if [ -f "$file" ]; then
-            processed=$((processed + 1))
-            percentage=$((processed * 100 / files_in_this_dir))
-            echo "[$percentage%] Converting $file to MiniSEED..."
+    find "$dir" -type f -name "*.${file_extension}" | while read file; do
+        # Verify if the file still exists before processing
+        if [ ! -f "$file" ]; then
+            echo "Warning: File $file was deleted before processing. Skipping..."
+            continue
+        fi
 
-            # Run the cube2mseed command.
-            /opt/cubetools-2024.170/bin/cube2mseed --verbose --output-dir="$output_dir" "$file"
+        processed=$((processed + 1))
+        percentage=$((processed * 100 / files_in_this_dir))
+        echo "[$percentage%] Converting $file to MiniSEED..."
 
-            if [ $? -eq 0 ]; then
-                echo "File $file converted successfully."
-            else
-                echo "Error converting $file."
-            fi
+        # Run the cube2mseed command.
+        /opt/gipptools/bin/cube2mseed --verbose --output-dir="$output_dir" "$file"
+
+        if [ $? -eq 0 ]; then
+            echo "File $file converted successfully."
+        else
+            echo "Error converting $file."
         fi
     done
-    echo "Finished converting files in $dir."
+
+    echo "Finished converting .$file_extension files in $dir."
 
     # Update the global count of processed files.
     total_files_processed=$((total_files_processed + files_in_this_dir))
@@ -96,7 +129,8 @@ echo "Starting file processing..."
 if [ -d "$dir" ]; then
     procesar_directorio "$dir" "$parent_dir" "$output_dirname"
 else
-    echo "$dir is not a valid directory."
+    echo "Error: The selected directory ($dir) is no longer valid. Exiting."
+    exit 1
 fi
 
 # Display the total number of processed files.
