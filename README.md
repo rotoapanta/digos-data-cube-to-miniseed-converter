@@ -98,14 +98,9 @@ Add the path to the CubeTools executable to your system's PATH variable. This wi
 to run CubeTools from anywhere.
 
 ```bash
-   $ nano ~/.bashrc
+   echo 'export PATH=/opt/cubetools-2024.354/bin:$PATH' >> ~/.bashrc
 ```
 
-Add this line at the end of the file (if you haven't done so already):
-
-```bash
-   export PATH=$PATH:/opt/cubetools-2024.354/bin
-```
 Save and close the file (Ctrl + O to save and Ctrl + X to exit).
 
 6. **Update the environment**:
