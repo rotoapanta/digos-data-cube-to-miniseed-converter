@@ -177,8 +177,6 @@ You will be prompted to enter a base directory:
 
 Once you enter a valid base directory, the script will list all available subdirectories.
 
-Example output:
-
 ```bash
    Select a directory with raw data files to process:
    1) /path/to/your/directory/DTA/file_1/raw_data_1
@@ -190,8 +188,6 @@ Select the directory by typing the corresponding number.
 3. **Choose the File Extension to Convert**
 
 The script will automatically detect available file extensions within the selected directory and prompt you to choose one.
-
-Example:
 
 ```bash
    Detected file extensions:
