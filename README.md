@@ -291,9 +291,9 @@ This approach ensures the user knows how to select a directory and what to expec
 - Permission Issues: Ensure the output directory is writable. You can adjust permissions with:
 
 ```bash
-   chmod -R 755 /path/to/your/directory/DTA/MiniSEED
+   chmod -R 755 /path/to/your/directory/DTA/MiniSEED_{original_directory_name}/
 ```
-- Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`
+- Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.357/bin/cube2mseed`
 
 ## Feedback
 
@@ -316,7 +316,7 @@ Click on the "Fork" button at the top right of this page to create a copy of thi
 Clone your forked repository to your local machine.
 
 ```bash
-   $ git clone https://github.com/your-username/digos-to-miniseed-converter.git
+   $ git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
 ```
 
 3. **Create a new branch**:
