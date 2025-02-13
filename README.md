@@ -1,4 +1,4 @@
-# DIGOS to MiniSEED Converter
+# DiGOS to MiniSEED Converter
 
 ![Bash](https://img.shields.io/badge/bash-v4.4-blue.svg)
 ![CubeTools](https://img.shields.io/badge/CubeTools-2024.354-brightgreen.svg)
