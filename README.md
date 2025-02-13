@@ -149,7 +149,7 @@ You should see output indicating the version of CubeTools installed.
 
 2. **Ensure CubeTools is Installed**:
 
-Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170/bin/cube2mseed`.
+Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.354/bin/cube2mseed`.
 
 3. **Update Script Permissions: Make the script executable if necessary**:
 
@@ -159,64 +159,117 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.170
 
 ## Usage
 
-1. **Prepare `.ADD` Files**:
+1. **Select a Base Directory**:
 
-Place your `.ADD` files in the following directory (or create your own):
-
-- `/path/to/your/directory/DTA/raw_add_files_1`
-
-Run the Conversion Script: Execute the script to convert the files:
+Run the script and enter the base directory where your raw data files are stored. You can use **TAB** for autocompletion.
 
 ```bash
    $ ./digos_to_miniseed_converter.sh
 ```
-
-You will be prompted with a list of directories to choose from. For example:
+You will be prompted to enter a base directory:
 
 ```bash
-    Select a directory with .ADD files to process:
-    1) /path/to/your/directory/DTA/raw_add_files_1
-    2) /path/to/your/directory/DTA/raw_add_files_2
-    3) /path/to/your/directory/DTA/raw_add_files_3
+   Enter the base directory (use TAB for autocompletion):
+   Base directory: /path/to/your/directory/DTA/
 ```
 
+2. **Select a Directory with Raw Data Files**
+
+Once you enter a valid base directory, the script will list all available subdirectories.
+
+Example output:
+
+```bash
+   Select a directory with raw data files to process:
+   1) /path/to/your/directory/DTA/raw_data_1
+   2) /path/to/your/directory/DTA/raw_data_2
+   3) /path/to/your/directory/DTA/raw_data_3
+```
 Select the directory by typing the corresponding number.
 
-2. **Script Execution**: 
+3. **Choose the File Extension to Convert**
 
-Once a directory is selected, the script will begin processing the `.ADD` files and convert them to MiniSEED files. The output will be saved in a subdirectory created in the same directory as the `.ADD` files, with a name like `MiniSEED_YYYY-MM-DD_HH-MM-SS`.
+The script will automatically detect available file extensions within the selected directory and prompt you to choose one.
+
+Example:
+
+```bash
+   Detected file extensions:
+   1) ADD
+   2) CF0
+   3) CF1
+   Select a number: 2
+```
+This ensures only files with the chosen extension are processed.
+
+4. **Script Execution**: 
+
+Once a directory and extension are selected, the script will begin processing the files and convert them to MiniSEED format.
 
 ```bash
    Starting file processing...
-   Processing files from /path/to/your/directory/DTA/raw_add_files_1
-   Found 2 .ADD files in /path/to/your/directory/DTA/raw_add_files_1.
-   ...
-   ...
-   ...
-   File /path/to/your/directory/DTA/raw_add_files1/file1.ADD converted successfully.
-   ...
-   File /path/to/your/directory/DTA/raw_add_files1/file2.ADD converted successfully.  
-   ...
-   Total files processed: 2.
+   Processing .CF0 files from /path/to/your/directory/DTA/raw_data_1
+   Found 3 .CF0 files in /path/to/your/directory/DTA/raw_data_1.
+   [33%] Converting file1.CF0 to MiniSEED...
+   File /path/to/your/directory/DTA/file1.CF0 converted successfully.
+   [66%] Converting file2.CF0 to MiniSEED...
+   File /path/to/your/directory/DTA/file2.CF0 converted successfully.
+   [100%] Converting file3.CF0 to MiniSEED...
+   File /path/to/your/directory/DTA/file3.CF0 converted successfully.
+   Finished converting .CF0 files in /path/to/your/directory/DTA/raw_data_1.
+   Output directory: /home/rotoapanta/Documentos/DiGOS/DTA/MiniSEED_raw_data_1
+   Total files processed: 3
    Processing completed.
 ```
 
 3. **Output Files**: 
 
-The MiniSEED files will be located in the newly created directory within the selected directory, named like `MiniSEED_Y-m-d_H-M-S`.
+Converted MiniSEED files will be stored in a new subdirectory within the selected directory.
 
 ```bash
-   /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/c0add240625194443.pri0
-   /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/c0add240625194443.pri1
-   /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/c0add240625194443.pri2
+  /path/to/your/directory/DTA_CEDIA/MiniSEED_raw_data_1/
+         ├── c0cf0250210165704.pri0
+         ├── c0cf0250210165704.pri1
+         ├── c0cf0250210165704.pri2
+         ├── log_YYYY-MM-DD.log
 ```
+The directory name follows this format:
+
+```bash
+  MiniSEED_{original_directory_name}
+```
+
+The .pri0, .pri1, and .pri2 files are the converted MiniSEED outputs.
+
+A log file is created, detailing the processing steps, conversion status, and any errors.
+
+5. **Handling File Deletion**
+
+If a file is deleted after selecting the directory but before processing, the script will detect it and skip the missing file instead of failing.
+
+```bash
+  Warning: File file3.CF0 was deleted before processing. Skipping...
+  [50%] Converting file1.CF0 to MiniSEED...
+  File /path/to/your/directory/DTA/file1.CF0 converted successfully.
+  [100%] Converting file2.CF0 to MiniSEED...
+  File /path/to/your/directory/DTA/file2.CF0 converted successfully.
+```
+
+6. Processing Multiple Directories
+
+Once the script finishes processing a directory, it will ask if you want to process another directory.
+
+```bash
+Do you want to process another directory? (y/n): y
+```
+If "y", the script will restart the selection process without exiting.
 
 4. **Log Files**: 
 
 A log file will be created in the same directory as the output files, detailing the processing steps, conversion status, and any errors.
    
 ```bash
-   /path/to/your/directory/DTA/MiniSEED_Y-m-d_H-M-S/log_Y-m-d_H-M-S)/
+   /path/to/your/directory/DTA/MiniSEED_{original_directory_name}/log_YYYY-MM-DD.log)
 ```
 
 This approach ensures the user knows how to select a directory and what to expect from the script.
@@ -226,9 +279,43 @@ This approach ensures the user knows how to select a directory and what to expec
 Here is an example of the output you can expect:
 
 ```bash
-   Processing files in /path/to/your/directory/DTA/raw_add_files_1/240625
-   [25%] Converting /path/to/your/directory/DTA/raw_add_files_1/240625/06251944.ADD to MiniSEED...
-   [50%] Converting /path/to/your/directory/DTA/raw_add_files_1/240625/06251945.ADD to MiniSEED...
+   $ ./digos_to_miniseed_converter.sh
+   Script version: 1.7.2
+
+   Enter the base directory (use TAB for autocompletion):
+   Base directory: /path/to/your/directory/DTA_CEDIA/
+
+   Select a directory with raw data files to process:
+   1) /path/to/your/directory/DTA_CEDIA/raw_data_1
+   2) /path/to/your/directory/DTA_CEDIA/raw_data_2
+   #? 1
+   You selected the directory: /path/to/your/directory/DTA_CEDIA/raw_data_1
+
+   Detected file extensions:
+   1) ADD
+   2) CF0
+   3) CF1
+   #? 2
+   You selected the extension: .CF0
+
+   Starting file processing...
+   Processing .CF0 files from /path/to/your/directory/DTA_CEDIA/raw_data_1
+   Found 3 .CF0 files in /path/to/your/directory/DTA_CEDIA/raw_data_1.
+   [33%] Converting file1.CF0 to MiniSEED...
+   File file1.CF0 converted successfully.
+   [66%] Converting file2.CF0 to MiniSEED...
+   File file2.CF0 converted successfully.
+   [100%] Converting file3.CF0 to MiniSEED...
+   File file3.CF0 converted successfully.
+   Finished converting .CF0 files in /path/to/your/directory/DTA_CEDIA/raw_data_1.
+
+   Output directory: /path/to/your/directory/DTA_CEDIA/MiniSEED_raw_data_1
+   Total files processed: 3
+   Processing completed.
+
+   Do you want to process another directory? (y/n): n
+   Exiting script.
+
    ...
 ```
 
