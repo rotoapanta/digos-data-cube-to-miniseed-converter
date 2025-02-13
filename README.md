@@ -1,7 +1,7 @@
 # DIGOS to MiniSEED Converter
 
 ![Bash](https://img.shields.io/badge/bash-v4.4-blue.svg)
-![CubeTools](https://img.shields.io/badge/CubeTools-2024.170-brightgreen.svg)
+![CubeTools](https://img.shields.io/badge/CubeTools-2024.354-brightgreen.svg)
 ![GitHub issues](https://img.shields.io/github/issues/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![Last Commit](https://img.shields.io/github/last-commit/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![License](https://img.shields.io/github/license/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
@@ -26,7 +26,7 @@ This script streamlines the conversion process, allowing batch processing of mul
 To successfully run this script, ensure the following requirements are met:
 
 - **CubeTools**: The conversion utility (`cube2mseed`) should be installed at:
-  `/opt/cubetools-2024.170/bin/cube2mseed`
+  `/opt/cubetools-2024.354/bin/cube2mseed`
 - **Bash**: The script is designed to run on Linux systems with Bash.
 - **Writable Output Directory**: The script will create the output directory if it does not exist.
 
@@ -79,7 +79,7 @@ Visit the official CubeTools website and download the latest version for your pl
 2. **Verify the downloaded file**:
 
 ```bash
-   $ file cubetools-2024.170-unix.tar.gz
+   $ file cubetools-2024.354-unix.tar.gz
 ```
 
 3. **Decompress the file**:
@@ -88,7 +88,7 @@ Decompress using gunzip:
 This will remove the .gz part, leaving you with the file cubetools-2024.170-unix.tar.
 
 ```bash
-   $ gunzip cubetools-2024.170-unix.tar.gz
+   $ gunzip cubetools-2024.354-unix.tar.gz
 ```
 
 4. **Extract the .tar file**:
@@ -96,7 +96,7 @@ This will remove the .gz part, leaving you with the file cubetools-2024.170-unix
 Extract the contents of the tar file using tar:
 
 ```bash
-   $ tar -xvf cubetools-2024.170-unix.tar
+   $ tar -xvf cubetools-2024.354-unix.tar
 ```
 5. **Move the extracted directory to a suitable location**:
 
@@ -114,7 +114,7 @@ to run CubeTools from anywhere.
 Add this line at the end of the file (if you haven't done so already):
 
 ```bash
-   export PATH=$PATH:/opt/cubetools-2024.170/bin
+   export PATH=$PATH:/opt/cubetools-2024.354/bin
 ```
 Save and close the file (Ctrl + O to save and Ctrl + X to exit).
 
@@ -131,7 +131,7 @@ Update the environment with:
 Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
 
 ```bash
-   $ chmod +x /opt/cubetools-2024.170/bin/cube2mseed
+   $ chmod +x /opt/cubetools-2024.354/bin/cube2mseed
 ```
 
 9. **Verify Installation**:
