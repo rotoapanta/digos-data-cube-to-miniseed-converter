@@ -337,18 +337,22 @@ Clone your forked repository to your local machine.
 
 Go to your repository on GitHub.
 
+---
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
+---
 ## Authors
 
 - [@rotoapanta](https://github.com/rotoapanta)
 
+---
 ## More Info
 
 * [Official documentation for DiGOS, Portafolio Seismic Measurement Equipment](https://digos.eu/seismology/)
 
+---
 ## Links
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-carlos-toapanta-g/)
