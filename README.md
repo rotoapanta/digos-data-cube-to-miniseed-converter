@@ -1,3 +1,5 @@
+# DiGOS to MiniSEED Converter
+
 ![Bash](https://img.shields.io/badge/bash-v4.4-blue.svg)
 ![CubeTools](https://img.shields.io/badge/CubeTools-2024.354-brightgreen.svg)
 ![GitHub issues](https://img.shields.io/github/issues/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
@@ -5,8 +7,6 @@
 ![License](https://img.shields.io/github/license/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
 ![Supported Platforms](https://img.shields.io/badge/platform-Linux%20|%20macOS-green)
-
-# DiGOS to MiniSEED Converter
 
 ## Overview
 
