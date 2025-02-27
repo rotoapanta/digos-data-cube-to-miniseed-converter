@@ -14,6 +14,7 @@ The **DIGOS to MiniSEED Converter** is a Bash script designed to facilitate the 
 
 This script streamlines the conversion process, allowing batch processing of multiple `.ADD` files, and is tailored to support datasets organized across various directories.
 
+---
 ## Features
 
 - **Batch Processing**: Automatically processes multiple `.ADD` files from specified directories.
@@ -21,6 +22,7 @@ This script streamlines the conversion process, allowing batch processing of mul
 - **Custom Output Directory**: Outputs all converted MiniSEED files to a specified directory for easy management.
 - **Error Handling**: Ensures smooth processing by skipping problematic files and reporting errors.
 
+---
 ## Prerequisites
 
 To successfully run this script, ensure the following requirements are met:
@@ -30,6 +32,7 @@ To successfully run this script, ensure the following requirements are met:
 - **Bash**: The script is designed to run on Linux systems with Bash.
 - **Writable Output Directory**: The script will create the output directory if it does not exist.
 
+---
 ## Installation
 
 ### Step 1: Install Java 1.8
@@ -157,6 +160,7 @@ Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.354
    $ chmod +x digos_to_miniseed_converter.sh
 ```
 
+---
 ## Usage
 
 1. **Select a Base Directory**:
@@ -282,6 +286,7 @@ A log file will be created in the same directory as the output files, detailing 
 
 This approach ensures the user knows how to select a directory and what to expect from the script.
 
+---
 ## Troubleshooting
 
 - Permission Issues: Ensure the output directory is writable. You can adjust permissions with:
@@ -291,14 +296,17 @@ This approach ensures the user knows how to select a directory and what to expec
 ```
 - Missing Dependencies: Verify that `cube2mseed` is installed and accessible at `/opt/cubetools-2024.357/bin/cube2mseed`
 
+---
 ## Feedback
 
 If you have any feedback, please reach out to us at robertocarlos.toapanta@gmail.com
 
+---
 ## Support
 
 For support, email robertocarlos.toapanta@gmail.com or join our Discord channel.
 
+---
 ## Contributing
 
 We welcome contributions to improve this script. Please follow these steps:
