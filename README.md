@@ -223,7 +223,7 @@ Once a directory and extension are selected, the script will begin processing th
    ...
    File /path/to/your/directory/DTA/file1/raw_data_3.CF0 converted successfully.
    Finished converting .CF0 files in /path/to/your/directory/DTA/raw_data_1.
-   Output directory: /home/rotoapanta/Documentos/DiGOS/DTA/MiniSEED_file_1
+   Output directory: /path/to/your/directory/DTA/MiniSEED_file_1
    Total files processed: 3
    Processing completed.
 ```
