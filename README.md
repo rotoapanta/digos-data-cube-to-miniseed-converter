@@ -2,10 +2,10 @@
 
 ![Bash](https://img.shields.io/badge/bash-v4.4-blue.svg)
 ![CubeTools](https://img.shields.io/badge/CubeTools-2024.354-brightgreen.svg)
-![GitHub issues](https://img.shields.io/github/issues/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
-![Last Commit](https://img.shields.io/github/last-commit/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
-![License](https://img.shields.io/github/license/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
-![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter)
+![GitHub issues](https://img.shields.io/github/issues/rotoapanta/digos-data-cube-to-miniseed-converter)
+![Last Commit](https://img.shields.io/github/last-commit/rotoapanta/digos-data-cube-to-miniseed-converter)
+![License](https://img.shields.io/github/license/rotoapanta/digos-data-cube-to-miniseed-converter)
+![GitHub repo size](https://img.shields.io/github/repo-size/rotoapanta/digos-data-cube-to-miniseed-converter)
 ![Supported Platforms](https://img.shields.io/badge/platform-Linux%20|%20macOS-green)
 
 ## Overview
@@ -143,11 +143,11 @@ You should see output indicating the version of CubeTools installed.
 1. **Clone the Repository**:
 
 ```bash
-   $ git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
+   $ git clone https://github.com/rotoapanta/digos-data-cube-to-miniseed-converter.git
 ```
 
 ```bash
-   $ cd DiGOS_DataCube_to_MiniSEED_Converter
+   $ cd digos-data-cube-to-miniseed-converter
 ```
 
 2. **Ensure CubeTools is Installed**:
@@ -320,7 +320,7 @@ Click on the "Fork" button at the top right of this page to create a copy of thi
 Clone your forked repository to your local machine.
 
 ```bash
-   $ git clone https://github.com/rotoapanta/DiGOS_DataCube_to_MiniSEED_Converter.git
+   $ git clone https://github.com/rotoapanta/digos-data-cube-to-miniseed-converter.git
 ```
 
 3. **Create a new branch**:
