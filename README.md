@@ -100,9 +100,14 @@ Extract the contents of the tar file using tar:
 ```bash
    $ tar -xzvf cubetools-2024.354-unix.tar
 ```
+
 5. **Move the extracted directory to a suitable location**:
 
 Move the CubeTools to `/opt` (which is a common place to install software not in your system's repositories).
+
+```bash
+   $ cp -r ~/Descargas/cubetools-2024.354 /opt/
+```
 
 6. **Update the PATH variable**:
 
@@ -128,7 +133,7 @@ Update the environment with:
 Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
 
 ```bash
-   $ chmod +x /opt/cubetools-2024.354/bin/cube2mseed
+   $ sudo chmod +x /opt/cubetools-2024.354/bin/cube2mseed
 ```
 
 9. **Verify Installation**:
