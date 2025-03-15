@@ -84,18 +84,27 @@ Visit the official CubeTools website and download the latest version for your pl
 ```bash
    $ file cubetools-2024.354-unix.tar.gz
 ```
-3. **Extract the .tar file**:
+
+3. **Decompress the .gz file**:
+
+First, decompress the `.gz` file using `gunzip`:
+
+```bash
+   $ gunzip cubetools-2024.354-unix.tar.gz
+```
+
+4. **Extract the .tar file**:
 
 Extract the contents of the tar file using tar:
 
 ```bash
    $ tar -xzvf cubetools-2024.354-unix.tar
 ```
-4. **Move the extracted directory to a suitable location**:
+5. **Move the extracted directory to a suitable location**:
 
 Move the CubeTools to `/opt` (which is a common place to install software not in your system's repositories).
 
-5. **Update the PATH variable**:
+6. **Update the PATH variable**:
 
 Add the path to the CubeTools executable to your system's PATH variable. This will allow you
 to run CubeTools from anywhere.
@@ -106,7 +115,7 @@ to run CubeTools from anywhere.
 
 Save and close the file (Ctrl + O to save and Ctrl + X to exit).
 
-6. **Update the environment**:
+7. **Update the environment**:
 
 Update the environment with:
 
@@ -114,7 +123,7 @@ Update the environment with:
    $ source ~/.bashrc
 ```
 
-7. **Set execution permissions for cube2mseed**:
+8. **Set execution permissions for cube2mseed**:
 
 Ensure that cube2mseed has execution permissions. If it is not executable, grant permissions with the following command:
 
@@ -122,7 +131,7 @@ Ensure that cube2mseed has execution permissions. If it is not executable, grant
    $ chmod +x /opt/cubetools-2024.354/bin/cube2mseed
 ```
 
-8. **Verify Installation**:
+9. **Verify Installation**:
 
 Once installed, verify by running the following command:
 
